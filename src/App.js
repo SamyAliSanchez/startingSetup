@@ -1,4 +1,8 @@
+import React from 'react';
+
+import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from "./components/Expenses/Expenses";
+import ExpensesFilter from './components/Expenses/ExpensesFilter';
 
 function App() {
 
@@ -29,10 +33,22 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log('In App.js');
+    console.log(expense)
+  }
+  const addExpenseYear = (year) => {
+    console.log('In year ')
+    console.log(year)
+  }
+    ;
+
+
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <Expenses items={expenses}/>
+      <NewExpense onAddExpense = {addExpenseHandler}/>
+      <Expenses items={expenses} />
+      <ExpensesFilter onAddYear = {addExpenseYear}/>
     </div>
   );
 }
